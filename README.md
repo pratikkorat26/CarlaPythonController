@@ -42,7 +42,7 @@ A modular and extensible FastAPI server designed to control and monitor multiple
 ![img.png](withfrontend/static/images/img.png)
 
 3. Video Feed
-![Video Feed](withfrontend/static/images/CARLA Multi-Robot Control Dashboard.gif)
+![Video Feed](withfrontend/static/images/CARLA%20Multi-Robot%20Control%20Dashboard.gif)
 ---
 
 ## 🚀 Quickstart
