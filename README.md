@@ -30,6 +30,19 @@ A modular and extensible FastAPI server designed to control and monitor multiple
 - Telemetry, streaming, and driving run in isolated threads.
 - Each module is independently startable/stoppable.
 
+
+### Frontend For Visualization
+- withfronted directory provides frontend as well for checking everything running properly.
+- You can use the frontend to check the telemetry and video feed of the robot.
+
+1. Landing Page
+![Landing Page](withfrontend/static/images/img_1.png)
+
+2. Telemetry
+![img.png](withfrontend/static/images/img.png)
+
+3. Video Feed
+![Video Feed](withfrontend/static/images/CARLA Multi-Robot Control Dashboard.gif)
 ---
 
 ## 🚀 Quickstart
@@ -88,6 +101,8 @@ uvicorn main:app --reload
 3. Extend drive logic with PID controllers or RL agents (To be done)
 
 4. Support multi-camera sensor fusion and recording (To be done)
+
+5. I know there is a lot to improve in this Carla Simulator.
 
 
 #### Caution

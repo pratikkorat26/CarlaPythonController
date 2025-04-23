@@ -1,0 +1,243 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --background: #f3f4f6;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease;
+}
+
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+  padding: 20px;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Control Panels */
+.control-panel {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.control-panel h3 {
+  color: var(--text);
+  font-size: 1.25rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Forms and Inputs */
+.create-robot-form {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+input {
+  padding: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  width: 150px;
+  transition: var(--transition);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Buttons */
+button {
+  padding: 0.625rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button.stop {
+  background: var(--danger);
+}
+
+button.stop:hover {
+  background: var(--danger-dark);
+}
+
+/* Robot List */
+.robot-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.robot-item {
+  background: var(--white);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.robot-item.active {
+  border-color: var(--primary);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.robot-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Data Display */
+.data-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.data-block {
+  background: var(--background);
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.data-label {
+  color: var(--text-light);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.data-value {
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* Telemetry */
+#telemetry-container {
+  background: var(--text);
+  border-radius: var(--radius);
+  padding: 1rem;
+  height: 300px;
+  overflow-y: auto;
+  position: relative;
+}
+
+#telemetry {
+  color: var(--white);
+  font-family: ui-monospace, monospace;
+  font-size: 0.875rem;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.telemetry-status {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.connected {
+  background: #22c55e;
+  color: var(--white);
+}
+
+.disconnected {
+  background: var(--danger);
+  color: var(--white);
+}
+
+/* Stream */
+#stream {
+  width: 100%;
+  max-width: 800px;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+}
+
+/* Disabled State */
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Speed Chart */
+#speedChart {
+  margin: 1.5rem 0;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .create-robot-form {
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .data-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CARLA Multi-Robot Control Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="header">
+            <h1>CARLA Multi-Robot Controller</h1>
+        </header>
+
+        <div class="control-panel robot-management">
+            <h3>🤖 Robot Management</h3>
+            <div class="create-robot-form">
+                <input id="robot-id-input" placeholder="Enter robot ID">
+                <button onclick="createRobot()">Create Robot</button>
+            </div>
+            <div id="robot-list" class="robot-list">
+                <div class="no-robots-msg">No robots available. Create one to begin.</div>
+            </div>
+        </div>
+
+        <div id="control-container" class="disabled">
+            <div class="control-panel">
+                <h3>🚗 Vehicle Spawn</h3>
+                <div class="create-robot-form">
+                    <input id="dx_in" placeholder="X coordinate">
+                    <input id="dy_in" placeholder="Y coordinate">
+                    <input id="dz_in" placeholder="Z coordinate">
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="spawn()">Spawn Vehicle</button>
+                    <button onclick="destroy()" class="stop">Destroy Vehicle</button>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h3>🎯 Navigation Control</h3>
+                <div class="create-robot-form">
+                    <input id="dx" placeholder="Target X">
+                    <input id="dy" placeholder="Target Y">
+                    <input id="dz" placeholder="Target Z">
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="drive()">Start Drive</button>
+                    <button onclick="stopDrive()" class="stop">Stop Drive</button>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h3>📊 Telemetry</h3>
+                <div>
+                    <button onclick="startTelemetry()">Start Telemetry</button>
+                    <button onclick="stopTelemetry()" class="stop">Stop Telemetry</button>
+                    <button onclick="clearTelemetry()">Clear Log</button>
+                </div>
+
+                <div class="data-row" id="live-data">
+                    <div class="data-block">
+                        <div class="data-label">SPEED</div>
+                        <div class="data-value" id="speed-value">0 km/h</div>
+                    </div>
+                    <div class="data-block">
+                        <div class="data-label">THROTTLE</div>
+                        <div class="data-value" id="throttle-value">0%</div>
+                    </div>
+                    <div class="data-block">
+                        <div class="data-label">STEERING</div>
+                        <div class="data-value" id="steering-value">0°</div>
+                    </div>
+                    <div class="data-block">
+                        <div class="data-label">BRAKE</div>
+                        <div class="data-value" id="brake-value">0%</div>
+                    </div>
+                </div>
+
+                <canvas id="speedChart" style="margin: 20px 0;"></canvas>
+
+                <div id="telemetry-container">
+                    <div id="sse-status" class="telemetry-status disconnected">Disconnected</div>
+                    <pre id="telemetry"></pre>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h3>📹 Camera Control</h3>
+                <div>
+                    <button onclick="attachCamera()">Attach Camera</button>
+                    <button onclick="detachCamera()" class="stop">Detach Camera</button>
+                    <button onclick="startVideo()">Start Stream</button>
+                    <button onclick="stopVideo()" class="stop">Stop Stream</button>
+                </div>
+                <img id="stream" alt="Camera Stream">
+            </div>
+
+            <div class="control-panel">
+                <h3>👁️ YOLO Detection</h3>
+                <div>
+                    <button onclick="startDetection()">Start Detection</button>
+                    <button onclick="stopDetection()" class="stop">Stop Detection</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="static/app.js"></script>
+</body>
+</html>
